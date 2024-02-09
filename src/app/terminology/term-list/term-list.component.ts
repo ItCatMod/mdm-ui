@@ -26,6 +26,7 @@ import {
 } from '@angular/core';
 import { MatSort } from '@angular/material/sort';
 import { MdmResourcesService } from '@mdm/modules/resources';
+import { SharedService } from '../../services/shared.service';
 import {
   Term,
   TermDetail,
@@ -65,6 +66,7 @@ export class TermListComponent implements AfterViewInit {
   terms: Term[] = [];
   isLoadingResults = false;
   totalItemCount = 0;
+  isLoggedIn = false;
 
   hideFilters = true;
   filterEvent = new EventEmitter<any>();
@@ -75,12 +77,15 @@ export class TermListComponent implements AfterViewInit {
 
   constructor(
     private resources: MdmResourcesService,
+    private sharedService: SharedService,
     private gridService: GridService,
     private messageHandler: MessageHandlerService,
     private editing: EditingService
   ) {}
 
   ngAfterViewInit() {
+    this.isLoggedIn = this.sharedService.isLoggedIn();
+
     this.filterEvent.subscribe(() => (this.paginator.pageIndex = 0));
     this.sort?.sortChange.subscribe(() => (this.paginator.pageIndex = 0));
 

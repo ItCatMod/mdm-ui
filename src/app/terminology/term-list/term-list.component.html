@@ -26,11 +26,13 @@ SPDX-License-Identifier: Apache-2.0
             <span class="fas fa-filter" (click)="filterClick()" matTooltip="Toggle search"></span>
         </div>
         <div fxLayout="row" fxFlex="45" fxFlex.md="45" fxFlex.sm="45" fxFlex.xs="100" fxLayoutAlign="flex-end center" fxLayoutAlign.xs="flex-start center">
+          <ng-template [ngIf]="isLoggedIn">
             <div class="mt-1">
                 <button type="button" mat-flat-button color="primary" (click)="openCreateTermDialog()">
                     <span class="fas fa-plus" aria-hidden="true"></span> Add Terms
                 </button>
             </div>
+          </ng-template>
         </div>
     </div>
   </div>

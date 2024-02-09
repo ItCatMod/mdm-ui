@@ -197,6 +197,7 @@ SPDX-License-Identifier: Apache-2.0
             *matCellDef="let record"
             style="max-width: 20%; width: 20%; text-align: center"
           >
+        <ng-template [ngIf]="isLoggedIn">
             <button
               mat-icon-button
               color="primary"
@@ -226,6 +227,7 @@ SPDX-License-Identifier: Apache-2.0
               <span class="fas fa-ellipsis-v"></span>
               <span style="display: none">Menu</span>
             </button>
+          </ng-template>
             <mat-menu
               #dataTypeRowActions="matMenu"
               yPosition="below"

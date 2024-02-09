@@ -24,12 +24,15 @@ SPDX-License-Identifier: Apache-2.0
                 Term Relationship Types <span class="mdm--badge mdm--element-count">{{totalItemCount}}</span>
             </h4>
         </div>
+
         <div fxFlex fxLayout="row" fxFlex="45" fxFlex.md="45" fxFlex.sm="45" fxFlex.xs="100" fxLayoutAlign="flex-end center" fxLayoutAlign.xs="flex-start center">
+          <ng-template [ngIf]="isLoggedIn">
             <div class="mt-1">
                 <button mat-flat-button color="primary" (click)="openCreateRelationshipTypeDialog()">
                     <span class="fas fa-plus" aria-hidden="true"></span> Add Relationship Type
                 </button>
             </div>
+          </ng-template>
         </div>
     </div>
   </div>

@@ -35,6 +35,7 @@ import {
   TermRelationshipTypeDetailResponse
 } from '@maurodatamapper/mdm-resources';
 import { MdmResourcesService } from '@mdm/modules/resources';
+import { SharedService } from '../../services/shared.service';
 import { merge } from 'rxjs';
 import { MdmTableDataSource } from '@mdm/utility/table-data-source';
 import {
@@ -66,11 +67,13 @@ export class TermRelationshipTypeListComponent
     TermRelationshipType
   > = new MdmTableDataSource();
   isLoadingResults = false;
+  isLoggedIn = false;
   reloadEvent = new EventEmitter<string>();
   totalItemCount = 0;
 
   constructor(
     private resources: MdmResourcesService,
+    private sharedService: SharedService,
     private editing: EditingService
   ) {}
 
@@ -105,6 +108,8 @@ export class TermRelationshipTypeListComponent
       this.totalItemCount = c;
       this.totalCount.emit(this.totalItemCount);
     });
+
+    this.isLoggedIn = this.sharedService.isLoggedIn();
   }
 
   ngAfterViewInit() {
