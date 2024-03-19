@@ -32,8 +32,8 @@ Themes
 Import more theme SASS files here to make them available to the app
 */
 @import 'style/themes/agora.scss';
-/*@import 'style/themes/default.scss';
-@import 'style/themes/nhs-digital.scss';*/
+@import 'style/themes/default.scss';
+@import 'style/themes/nhs-digital.scss';
 
 /* import custom styling */
 /* Abstracts */
@@ -50,11 +50,13 @@ $fa-font-path: '~@fortawesome/fontawesome-free/webfonts';
 
 @import 'style/main';
 @import 'style/default';
+
 /* Components */
 @import 'style/components/header';
 @import 'style/components/forms';
 @import 'style/components/table';
 @import 'style/components/modal';
+
 /* Layouts */
 @import 'style/layout/home';
 @import 'style/layout/admin';

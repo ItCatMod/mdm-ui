@@ -26,7 +26,7 @@ export const environment = {
   version: packageFile?.version ?? '',
   apiEndpoint: 'http://localhost:8080/api',
   HDFLink: '',
-  themeName: 'default',
+  themeName: 'agora',
   appTitle: 'Mauro Data Mapper',
   appDescription:
     'The Mauro Data Mapper is a toolkit for creating, sharing, and updating data models.',

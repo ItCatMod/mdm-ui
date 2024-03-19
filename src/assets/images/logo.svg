@@ -16,7 +16,7 @@ limitations under the License.
 SPDX-License-Identifier: Apache-2.0
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="228" height="86" viewBox="0 0 228 86">
-  <g id="logo" transform="translate(-1583 -669)">
+  <g id="mdm-logo" transform="translate(-1583 -669)">
     <g id="Group_63" data-name="Group 63" transform="translate(1582.932 661)">
       <text id="MDM" transform="translate(0.068 76)" fill="#fff" font-size="65" font-family="Roboto-Bold, Roboto" font-weight="700"><tspan x="0" y="0">MDM</tspan></text>
     </g>

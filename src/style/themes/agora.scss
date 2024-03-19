@@ -1,0 +1,146 @@
+/*
+Copyright 2020-2023 University of Oxford and NHS England
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+@use '@angular/material' as mat;
+@import '../components/custom';
+
+/* Primary values */
+$default-palette-primary: (
+  50:#FAFCFF,
+  100: #F2F6FF,
+  200: #F2F6FF,
+  300: #BBD1FD,
+  400: #5F93FC,
+  500: #1A65FA,
+  600: #034AD8,
+  700: #0338A2,
+  800: #002B82,
+  900: #021C51,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+/* Accent values */
+$default-palette-accent: (
+  50: #e7f1e8,
+  100: #c3ddc5,
+  200: #9cc79e,
+  300: #74b077,
+  400: #569f59,
+  500: #388e3c,
+  600: #328636,
+  700: #2b7b2e,
+  800: #247127,
+  900: #175f1a,
+  A100: #9aff9d,
+  A200: #67ff6b,
+  A400: #34ff3a,
+  A700: #1aff21,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000
+  )
+);
+
+/* Warn values */
+$default-palette-warn: (
+  50: #FFF9E5,
+  100: #FFF2CC,
+  200: #FFE699,
+  300: #FFE699,
+  400: #FFD966,
+  500: #FBCB3C,
+  600: #FBBB3C,
+  700: #F2A222,
+  800: #B06112,
+  900: #80460D,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$default-theme-primary: mat.define-palette($default-palette-primary);
+$default-theme-accent: mat.define-palette($default-palette-accent);
+$default-theme-warn: mat.define-palette($default-palette-warn);
+
+$default-theme: mat.define-light-theme(
+  $default-theme-primary,
+  $default-theme-accent,
+  $default-theme-warn
+);
+
+$default-typography: mat.define-typography-config(
+  $font-family: 'Noto Sans',
+  $body-1: mat.define-typography-level(17px, 26px, 500),
+  $body-2: mat.define-typography-level(18px, 26px, 500),
+  $headline: mat.define-typography-level(36px, 42px, 600),
+  $title: mat.define-typography-level(32px, 38px, 600),
+  $subheading-2: mat.define-typography-level(26px, 32px, 600),
+  $subheading-1: mat.define-typography-level(22px, 28px, 600),
+  $button: mat.define-typography-level(20px, 26px, 600),
+  $input: mat.define-typography-level(18px, 1.125, 500)
+);
+
+.default-theme {
+  @include mat.all-component-themes($default-theme);
+  @include mat.all-component-typographies($default-typography);
+  @include mdm-custom-components-theme($default-theme);
+
+  .mat-option {
+    font-size: 16px;
+  }
+}
