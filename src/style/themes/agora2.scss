@@ -22,10 +22,10 @@ SPDX-License-Identifier: Apache-2.0
 NHS branding guidelines taken from https://www.england.nhs.uk/nhsidentity/applying-the-identity/
 */
 
-$nhs-blue: #005EB8;
-$nhs-green: #009639;
-$nhs-dark-red: #8A1538;
-$nhs-dark-grey: #425563;
+$agora2-blue: #005EB8;
+$agora2-green: #009639;
+$agora2-dark-red: #8A1538;
+$agora2-dark-grey: #425563;
 $agora2-background-color: #f0f4f5;
 $agora2-plain-background-color: #fff;
 
@@ -67,7 +67,7 @@ $agora2-palette-accent: (
     200 : #99d5b0,
     300 : #66c088,
     400 : #33ab61,
-    500 : $nhs-green,
+    500 : $agora2-green,
     600 : #00782e,
     700 : #005a22,
     800 : #003c17,
@@ -101,7 +101,7 @@ $agora2-palette-warn: (
   200: #d0a1af,
   300: #b97388,
   400: #a14460,
-  500: $nhs-dark-red,//#8A1538, // NHS Dark Red
+  500: $agora2-dark-red,//#8A1538, // NHS Dark Red
   600: #6e112d,
   700: #530d22,
   800: #370816,
@@ -195,7 +195,7 @@ $agora2-typography: mat.define-typography-config(
   }
 
   footer {
-    background-color: $nhs-dark-grey;
+    background-color: $agora2-dark-grey;
 
     a, .text-muted {
       color: #fff !important;
