@@ -1,0 +1,224 @@
+/*
+Copyright 2020-2023 University of Oxford and NHS England
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+SPDX-License-Identifier: Apache-2.0
+*/
+@use '@angular/material' as mat;
+@import "../components/custom";
+
+/*
+NHS branding guidelines taken from https://www.england.nhs.uk/nhsidentity/applying-the-identity/
+*/
+
+$nhs-blue: #005EB8;
+$nhs-green: #009639;
+$nhs-dark-red: #8A1538;
+$nhs-dark-grey: #425563;
+$agora2-background-color: #f0f4f5;
+$agora2-plain-background-color: #fff;
+
+/* Primary values */
+$agora2-palette-primary: (
+  50:#FAFCFF,
+  100: #F2F6FF,
+  200: #F2F6FF,
+  300: #BBD1FD,
+  400: #5F93FC,
+  500: #1A65FA,
+  600: #034AD8,
+  700: #0338A2,
+  800: #002B82,
+  900: #021C51,
+
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+/* Accent values */
+$agora2-palette-accent: (
+    50 : #e6f5eb,
+    100 : #ccead7,
+    200 : #99d5b0,
+    300 : #66c088,
+    400 : #33ab61,
+    500 : $nhs-green,
+    600 : #00782e,
+    700 : #005a22,
+    800 : #003c17,
+    900 : #001e0b,
+    A100 : #9aff9d,
+    A200 : #67ff6b,
+    A400 : #34ff3a,
+    A700 : #1aff21,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+/* Warn values */
+$agora2-palette-warn: (
+  50: #f3e8eb,
+  100: #e8d0d7,
+  200: #d0a1af,
+  300: #b97388,
+  400: #a14460,
+  500: $nhs-dark-red,//#8A1538, // NHS Dark Red
+  600: #6e112d,
+  700: #530d22,
+  800: #370816,
+  900: #1c040b,
+  A100: #ffa8ac,
+  A200: #ff757b,
+  A400: #ff424a,
+  A700: #ff2832,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #ffffff,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #ffffff,
+    A700: #ffffff
+  )
+);
+
+$agora2-theme-primary: mat.define-palette($agora2-palette-primary);
+$agora2-theme-accent: mat.define-palette($agora2-palette-accent);
+$agora2-theme-warn: mat.define-palette($agora2-palette-warn);
+
+$agora2-theme: mat.define-light-theme(
+  $agora2-theme-primary,
+  $agora2-theme-accent,
+  $agora2-theme-warn
+);
+
+$agora2-typography: mat.define-typography-config(
+  $font-family: "Frutiger, Arial, sans-serif",
+  $body-1: mat.define-typography-level(17px, 26px, 500),
+  $body-2: mat.define-typography-level(18px, 26px, 500),
+  $headline: mat.define-typography-level(36px, 42px, 600),
+  $title: mat.define-typography-level(32px, 38px, 600),
+  $subheading-2: mat.define-typography-level(26px, 32px, 600),
+  $subheading-1: mat.define-typography-level(22px, 28px, 600),
+  $button: mat.define-typography-level(20px, 26px, 600),
+  $input: mat.define-typography-level(18px, 1.125, 500)
+);
+
+.agora2-theme {
+  @include mat.all-component-themes($agora2-theme);
+  @include mat.all-component-typographies($agora2-typography);
+  @include mdm-custom-components-theme($agora2-theme);
+
+  /* Style overrides for the NHS Digital theme */
+
+  .heading-container {
+    background-color: $agora2-plain-background-color;
+  }
+
+
+  .mdm-app-component {
+    background-color: $agora2-background-color;
+  }
+
+  .mdm-navbar__brand--logo {
+    img {
+      max-width: 120px;
+      width: 80px;
+    }
+  }
+
+
+  form {
+    background-color: $agora2-plain-background-color;
+  }
+
+  form.mdm--form {
+    padding: 20px;
+
+  }
+
+  .mdm--shadow-block {
+    padding: 10px;
+  }
+
+  span.tree-top-actions, span.import-folder-actions {
+
+    button {
+      background-color: $agora2-plain-background-color;
+    }
+  }
+
+  footer {
+    background-color: $nhs-dark-grey;
+
+    a, .text-muted {
+      color: #fff !important;
+    }
+  }
+
+  .mdm-diagram-tab {
+    background-color: $agora2-plain-background-color;
+
+    .mdm-diagram-toolbar {
+      height: 3em;
+      margin: 0.5em 0;
+      padding: 0.5em 1em 0.5em 0.5em;
+    }
+  }
+
+  .mdm-editable-form-buttons {
+    padding: 10px;
+  }
+
+  .mdm--profile-block {
+    .mdm-profile__image {
+      background-color: $agora2-background-color !important;
+    }
+  }
+}
