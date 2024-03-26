@@ -1,4 +1,4 @@
-/*matf
+/*
 Copyright 2020-2023 University of Oxford and NHS England
 
 Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,21 +16,8 @@ limitations under the License.
 SPDX-License-Identifier: Apache-2.0
 */
 
-@use '@angular/material' as mat; /* cant access this one */ 
-@import "../components/custom";
-
-/*
-Branding guidelines taken from https://zeroheight.com/1be481dc2/p/68d251-escala/b/7417a8
-*/
-
-/*
-$default-blue: #005EB8;
-$default-green: #009639;
-$default-dark-red: #8A1538;
-$default-dark-grey: #425563;
-$default-background-color: #f0f4f5;
-$default-plain-background-color: #fff;
-*/
+@use '@angular/material' as mat;
+@import '../components/custom';
 
 /* Primary values */
 $default-palette-primary: (
@@ -101,7 +88,6 @@ $default-palette-accent: (
 
 /* Warn values */
 $default-palette-warn: (
-
   50: #FFF9E5,
   100: #FFF2CC,
   200: #FFE699,
@@ -113,6 +99,7 @@ $default-palette-warn: (
   800: #B06112,
   900: #80460D,
 
+ /*not included in the template */
   contrast: (
     50: #000000,
     100: #000000,
@@ -142,7 +129,7 @@ $default-theme: mat.define-light-theme(
 );
 
 $default-typography: mat.define-typography-config(
-  $font-family: 'Noto Sans', 
+  $font-family: 'Noto sans', /*font template from agora*/
   $body-1: mat.define-typography-level(17px, 26px, 500),
   $body-2: mat.define-typography-level(18px, 26px, 500),
   $headline: mat.define-typography-level(36px, 42px, 600),
@@ -153,8 +140,7 @@ $default-typography: mat.define-typography-config(
   $input: mat.define-typography-level(18px, 1.125, 500)
 );
 
-.default-theme { /*problema se alterar para "default", manter o default*/
-
+.default-theme {
   @include mat.all-component-themes($default-theme);
   @include mat.all-component-typographies($default-typography);
   @include mdm-custom-components-theme($default-theme);
@@ -163,88 +149,3 @@ $default-typography: mat.define-typography-config(
     font-size: 16px;
   }
 }
-
-/*
-  /* Style overrides for the NHS Digital theme 
-
-  .heading-container {
-
-    background-color: $default-blue; /*$default-plain-background-color
-
-  }
-
-
-  .mdm-app-component {
-
-    background-color: $default-background-color;
-  }
-
-  .mdm-navbar__brand--logo {
-    img {
-
-      max-width: 120px;
-      width: 80px;
-    }
-  }
-
-
-  form {
-
-    background-color: $default-blue; /* $default-plain-background-color
-    
-  }
-
-  form.mdm--form {
-
-    padding: 20px;
-
-  }
-
-  .mdm--shadow-block {
-    
-    padding: 10px;
-  }
-
-  span.tree-top-actions, span.import-folder-actions {
-
-    button {
-      background-color: $default-plain-background-color;
-    }
-  }
-
-  footer {
-    background-color: $default-blue;/*$default-dark-grey
-
-    a, .text-muted {
-
-      color: #fff !important;
-    }
-  }
-
-  .mdm-diagram-tab {
-
-    background-color: $default-plain-background-color;
-
-    .mdm-diagram-toolbar {
-
-      height: 3em;
-      margin: 0.5em 0;
-      padding: 0.5em 1em 0.5em 0.5em;
-
-    }
-  }
-
-  .mdm-editable-form-buttons {
-
-    padding: 10px;
-
-  }
-
-  .mdm--profile-block {
-    .mdm-profile__image {
-      background-color: $default-background-color !important;
-    }
-  }
-
-
-*/

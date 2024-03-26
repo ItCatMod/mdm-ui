@@ -22,15 +22,16 @@ SPDX-License-Identifier: Apache-2.0
 NHS branding guidelines taken from https://www.england.nhs.uk/nhsidentity/applying-the-identity/
 */
 
-$agora2-blue: #005EB8;
-$agora2-green: #009639;
-$agora2-dark-red: #8A1538;
-$agora2-dark-grey: #425563;
-$agora2-background-color: #f0f4f5;
-$agora2-plain-background-color: #fff;
+$agora-blue: #005EB8;
+$agora-green: #009639;
+$agora-dark-red: #8A1538;
+$agora-dark-grey: #425563;
+$agora-background-color: #f0f4f5;
+$agora-plain-background-color: #fff;
 
 /* Primary values */
-$agora2-palette-primary: (
+$agora-palette-primary: (
+
   50:#FAFCFF,
   100: #F2F6FF,
   200: #F2F6FF,
@@ -61,13 +62,13 @@ $agora2-palette-primary: (
 );
 
 /* Accent values */
-$agora2-palette-accent: (
+$agora-palette-accent: (
     50 : #e6f5eb,
     100 : #ccead7,
     200 : #99d5b0,
     300 : #66c088,
     400 : #33ab61,
-    500 : $agora2-green,
+    500 : $agora-green,
     600 : #00782e,
     700 : #005a22,
     800 : #003c17,
@@ -95,21 +96,20 @@ $agora2-palette-accent: (
 );
 
 /* Warn values */
-$agora2-palette-warn: (
-  50: #f3e8eb,
-  100: #e8d0d7,
-  200: #d0a1af,
-  300: #b97388,
-  400: #a14460,
-  500: $agora2-dark-red,//#8A1538, // NHS Dark Red
-  600: #6e112d,
-  700: #530d22,
-  800: #370816,
-  900: #1c040b,
-  A100: #ffa8ac,
-  A200: #ff757b,
-  A400: #ff424a,
-  A700: #ff2832,
+
+$agora-palette-warn: (
+  50: #FFF9E5,
+  100: #FFF2CC,
+  200: #FFE699,
+  300: #FFE699,
+  400: #FFD966,
+  500: #FBCB3C,
+  600: #FBBB3C,
+  700: #F2A222,
+  800: #B06112,
+  900: #80460D,
+
+ /*not included in the template */
   contrast: (
     50: #000000,
     100: #000000,
@@ -128,18 +128,20 @@ $agora2-palette-warn: (
   )
 );
 
-$agora2-theme-primary: mat.define-palette($agora2-palette-primary);
-$agora2-theme-accent: mat.define-palette($agora2-palette-accent);
-$agora2-theme-warn: mat.define-palette($agora2-palette-warn);
+$agora-theme-primary: mat.define-palette($agora-palette-primary);
+$agora-theme-accent: mat.define-palette($agora-palette-accent);
+$agora-theme-warn: mat.define-palette($agora-palette-warn);
 
-$agora2-theme: mat.define-light-theme(
-  $agora2-theme-primary,
-  $agora2-theme-accent,
-  $agora2-theme-warn
+$agora-theme: mat.define-light-theme(
+
+  $agora-theme-primary,
+  $agora-theme-accent,
+  $agora-theme-warn
+
 );
 
-$agora2-typography: mat.define-typography-config(
-  $font-family: "Frutiger, Arial, sans-serif",
+$agora-typography: mat.define-typography-config(
+  $font-family: "Noto sans",
   $body-1: mat.define-typography-level(17px, 26px, 500),
   $body-2: mat.define-typography-level(18px, 26px, 500),
   $headline: mat.define-typography-level(36px, 42px, 600),
@@ -150,24 +152,32 @@ $agora2-typography: mat.define-typography-config(
   $input: mat.define-typography-level(18px, 1.125, 500)
 );
 
-.agora2-theme {
-  @include mat.all-component-themes($agora2-theme);
-  @include mat.all-component-typographies($agora2-typography);
-  @include mdm-custom-components-theme($agora2-theme);
+.agora-theme {
 
-  /* Style overrides for the NHS Digital theme */
+  @include mat.all-component-themes($agora-theme);
+  @include mat.all-component-typographies($agora-typography);
+  @include mdm-custom-components-theme($agora-theme);
+
+}
+
+/*
+  /* Style overrides for the NHS Digital theme 
 
   .heading-container {
-    background-color: $agora2-plain-background-color;
+
+    background-color: $agora-blue;
+
   }
 
 
   .mdm-app-component {
-    background-color: $agora2-background-color;
+
+    background-color: $agora-background-color;
   }
 
   .mdm-navbar__brand--logo {
     img {
+
       max-width: 120px;
       width: 80px;
     }
@@ -175,7 +185,9 @@ $agora2-typography: mat.define-typography-config(
 
 
   form {
-    background-color: $agora2-plain-background-color;
+
+    background-color: $agora-plain-background-color;
+    
   }
 
   form.mdm--form {
@@ -190,35 +202,43 @@ $agora2-typography: mat.define-typography-config(
   span.tree-top-actions, span.import-folder-actions {
 
     button {
-      background-color: $agora2-plain-background-color;
+      background-color: $agora-plain-background-color;
     }
   }
 
   footer {
-    background-color: $agora2-dark-grey;
+    background-color: $agora-dark-grey; /*$agora-dark-grey
 
     a, .text-muted {
+
       color: #fff !important;
     }
   }
 
   .mdm-diagram-tab {
-    background-color: $agora2-plain-background-color;
+
+    background-color: $agora-plain-background-color;
 
     .mdm-diagram-toolbar {
+
       height: 3em;
       margin: 0.5em 0;
       padding: 0.5em 1em 0.5em 0.5em;
+
     }
   }
 
   .mdm-editable-form-buttons {
+
     padding: 10px;
+
   }
 
   .mdm--profile-block {
     .mdm-profile__image {
-      background-color: $agora2-background-color !important;
+      background-color: $agora-background-color !important;
     }
   }
-}
+
+
+*/
